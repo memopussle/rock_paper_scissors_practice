@@ -55,13 +55,13 @@ function playRound(playerSelection, computerSelection) {
 playerScore = parseInt(0); // set playerScore = 0
 computerScore = parseInt(0); // set computerScore = 0;
 
+//ask player's decision and calculate scores
 function game() {
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 3; i++) {
     let playerSelection = prompt("Choose rock, paper or scissors");
     const computerSelection = computerPlay();
     console.log("Player score = " + playerScore);
     console.log("Computer score = " + computerScore);
   }
 }
-
 game();
