@@ -1,4 +1,7 @@
+"use strict";
+
 //create computer's choices
+
 function computerPlay() {
   const random = Math.random();
   if (random < 0.34) {
@@ -12,6 +15,9 @@ function computerPlay() {
     return "scissors";
   }
 }
+
+var playerScore = 0;
+var computerScore = 0;
 
 //if..else to determine who is the winner/ draw based on playerSelection and ComputerSelection
 function playRound(playerSelection, computerSelection) {
@@ -51,9 +57,6 @@ function playRound(playerSelection, computerSelection) {
     }
   }
 }
-
-playerScore = parseInt(0); // set playerScore = 0
-computerScore = parseInt(0); // set computerScore = 0;
 
 //ask player's decision and calculate scores
 function game() {
