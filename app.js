@@ -59,27 +59,46 @@ function playRound(playerSelection, computerSelection) {
 }
 
 //ask player's decision and calculate scores
-function game() {
-  //use while loop. keep looping until either one of player wins
-  let i =1;
-  while (i < 4) {
-    let playerSelection = prompt("Choose rock, paper or scissors");
-    const computerSelection = computerPlay();
-    alert(playRound(playerSelection, computerSelection));
-    i++;
-    console.log("Player score = " + playerScore);
-    console.log("Computer score = " + computerScore);
+let chooseMode = prompt("choose mode: single round or best out of three");
+
+if (chooseMode.toLowerCase() === "best out of three") {
+  function game() {
+    //use while loop. keep looping until either one of player wins
+    let i = 1;
+
+    while (i < 4) {
+      let playerSelection = prompt("Choose rock, paper or scissors");
+      const computerSelection = computerPlay();
+      alert(playRound(playerSelection, computerSelection));
+      i++;
+      console.log("Player score = " + playerScore);
+      console.log("Computer score = " + computerScore);
+    }
   }
-}
-game();
+  game();
 
-////////Log in final result after 3 rounds
-if (playerScore > computerScore) {
-  console.log("you win!");
-} else if (playerScore === computerScore) {
-  console.log("tie!");
+  ////////Log in final result after 3 rounds
+  if (playerScore > computerScore) {
+    console.log("you win!");
+  } else if (playerScore === computerScore) {
+    console.log("tie!");
+  } else {
+    console.log("You lose!");
+  }
+} else if (chooseMode.toLowerCase() === "single round") {
+  let playerSelection = prompt("Choose rock, paper or scissors");
+  const computerSelection = computerPlay();
+  alert(playRound(playerSelection, computerSelection));
+  console.log("Player score = " + playerScore);
+  console.log("Computer score = " + computerScore);
+
+  if (playerScore > computerScore) {
+    console.log("you win!");
+  } else if (playerScore === computerScore) {
+    console.log("tie!");
+  } else {
+    console.log("You lose!");
+  }
 } else {
-  console.log("You lose!");
+  alert("Type Error! Try again");
 }
-
-//  part where the user can choose best of 3 or single round.
