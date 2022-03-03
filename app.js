@@ -24,8 +24,6 @@ function playRound(playerSelection, computerSelection) {
   if (playerSelection.toLowerCase() === "rock") {
     //convert all word variation to rock. ie: Rock, ROck, roCk etc
     if (computerSelection === "rock") {
-      computerScore++;
-      playerScore ++;
       return "Tie";
     } else if (computerSelection === "paper") {
       computerScore++;
@@ -62,14 +60,26 @@ function playRound(playerSelection, computerSelection) {
 
 //ask player's decision and calculate scores
 function game() {
-  for (let i = 0; i < 3; i++) {
+  //use while loop. keep looping until either one of player wins
+  let i =1;
+  while (i < 4) {
     let playerSelection = prompt("Choose rock, paper or scissors");
     const computerSelection = computerPlay();
     alert(playRound(playerSelection, computerSelection));
+    i++;
     console.log("Player score = " + playerScore);
     console.log("Computer score = " + computerScore);
-
   }
 }
 game();
 
+////////Log in final result after 3 rounds
+if (playerScore > computerScore) {
+  console.log("you win!");
+} else if (playerScore === computerScore) {
+  console.log("tie!");
+} else {
+  console.log("You lose!");
+}
+
+//  part where the user can choose best of 3 or single round.
