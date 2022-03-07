@@ -66,7 +66,7 @@ if (chooseMode.toLowerCase() === "best out of three") {
     //use while loop. keep looping until either one of player wins
     let i = 1;
 
-    while (i < 4) {
+    while (playerScore < 2 && computerScore < 2) {
       let playerSelection = prompt("Choose rock, paper or scissors");
       const computerSelection = computerPlay();
       alert(playRound(playerSelection, computerSelection));
