@@ -59,13 +59,16 @@ function playRound(playerSelection, computerSelection) {
 }
 
 //ask player's decision and calculate scores
-let chooseMode = prompt("choose mode: single round or best out of three");
+let chooseMode = prompt(
+  "choose mode: insert 1 (for single round) or 2 for (best out of three)"
+);
 
-if (chooseMode.toLowerCase() === "best out of three") {
+if (chooseMode === "2") {
   function game() {
     //use while loop. keep looping until either one of player wins
     let i = 1;
 
+    //keep looping until each score gets to 2
     while (playerScore < 2 && computerScore < 2) {
       let playerSelection = prompt("Choose rock, paper or scissors");
       const computerSelection = computerPlay();
@@ -85,7 +88,7 @@ if (chooseMode.toLowerCase() === "best out of three") {
   } else {
     console.log("You lose!");
   }
-} else if (chooseMode.toLowerCase() === "single round") {
+} else if (chooseMode === "1") {
   let playerSelection = prompt("Choose rock, paper or scissors");
   const computerSelection = computerPlay();
   alert(playRound(playerSelection, computerSelection));
